@@ -1,5 +1,5 @@
 {
-  "description": "single learning storage unit, with renewables and CBT, no forecast error, powerplants bid according to built-in strategies",
+  "description": "single learning storage unit, with renewables, CBT, and forecast error, powerplants bid according to built-in strategies",
   
   "run_base": {
     "scenario": "storage_paper/case_02",
@@ -13,14 +13,12 @@
     "importCBT": true,
     "import_storages": true,
     "opt_storages": false,
-    "write_to_db": true,
+    "write_to_db": false,
     "rl_mode": false,
     "learning_params": {
       "training": false
     },
-    "load_params": false,
-  "comments": "power plants bid with built in strategies"
-
+    "load_params": false
   },
 
   "run_opt": {
@@ -35,7 +33,7 @@
     "importCBT": true,
     "import_storages": true,
     "opt_storages": true,
-    "write_to_db": true,
+    "write_to_db": false,
     "rl_mode": false,
     "learning_params": {
       "training": false
@@ -55,14 +53,14 @@
     "importCBT": true,
     "import_storages": true,
     "opt_storages": true,
-    "write_to_db": true,
+    "write_to_db": false,
     "rl_mode": false,
     "learning_params": {
       "training": false
     },
     "load_params": false
   },
-
+  
   "run_01": {
     "scenario": "storage_paper/case_02",
     "id": "st_02_1",
@@ -75,10 +73,10 @@
     "importCBT": true,
     "import_storages": true,
     "opt_storages": false,
-    "write_to_db": true,
+    "write_to_db": false,
     "rl_mode": true,
     "learning_params": {
-      "training": false,
+      "training": true,
       "learning_rate": 1e-4,
       "batch_size": 256,
       "train_freq": -1,
@@ -88,12 +86,6 @@
       "learning_starts": 5,
       "noise_sigma": 0.1
     },
-    "load_params": {
-      "id": "st_02_1",
-      "policy_dir": "E:/Codes/flexRL/policies/",
-      "dir": "highest_profit",
-      "load_critics": false
-    },
-    "comments": "policy with highest profit"
+    "load_params": false
   }
 }

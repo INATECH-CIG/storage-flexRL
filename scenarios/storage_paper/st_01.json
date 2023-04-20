@@ -13,7 +13,7 @@
     "importCBT": false,
     "import_storages": true,
     "opt_storages": false,
-    "write_to_db": true,
+    "write_to_db": false,
     "rl_mode": false,
     "learning_params": {
       "training": false
@@ -33,7 +33,7 @@
     "importCBT": false,
     "import_storages": true,
     "opt_storages": true,
-    "write_to_db": true,
+    "write_to_db": false,
     "rl_mode": false,
     "learning_params": {
       "training": false
@@ -53,7 +53,7 @@
     "importCBT": false,
     "import_storages": true,
     "opt_storages": true,
-    "write_to_db": true,
+    "write_to_db": false,
     "rl_mode": false,
     "learning_params": {
       "training": false
@@ -73,10 +73,10 @@
     "importCBT": false,
     "import_storages": true,
     "opt_storages": false,
-    "write_to_db": true,
+    "write_to_db": false,
     "rl_mode": true,
     "learning_params": {
-      "training": false,
+      "training": true,
       "learning_rate": 1e-4,
       "batch_size": 256,
       "train_freq": 100,
@@ -85,11 +85,6 @@
       "training_episodes": 300,
       "learning_starts": 10
     },
-    "load_params": {
-      "id": "st_01_1",
-      "policy_dir": "E:/Codes/flexRL/policies/",
-      "dir": "highest_profit",
-      "load_critics": false
-    }
+    "load_params": false
   }
 }

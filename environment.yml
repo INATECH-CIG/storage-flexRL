@@ -1,0 +1,20 @@
+name: flexrl
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ipython
+  - matplotlib
+  - numpy
+  - pandas
+  - pytorch
+  - torchaudio
+  - torchvision
+  - tqdm
+  - influxdb
+  - scikit-learn
+  - tensorboard
+  - plotly
+  - pyomo
+  - glpk
+  - opencv

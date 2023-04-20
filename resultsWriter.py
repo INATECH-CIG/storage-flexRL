@@ -112,21 +112,23 @@ class ResultsWriter():
         tempDF.to_csv(directory + 'EOM_Prices.csv')
 
         # save total capacities of power plants as CSV
-        for unit in self.world.powerplants:
-            tempDF = pd.DataFrame(unit.dictCapacity,
-                                  index=['Power']).drop([-1], axis=1).T
-            tempDF = tempDF.set_index(self.index).astype('float32')
-            tempDF.to_csv(directory + f'PP_capacities/{unit.name}_Capacity.csv')
+        for powerplant in (self.world.rl_powerplants+self.world.powerplants+self.world.vre_powerplants):
+            tempDF = pd.DataFrame(data=powerplant.total_capacity, index=self.index, columns=['Total pp']).astype('float32')
+            tempDF.to_csv(directory + f'PP_capacities/{powerplant.name}_Capacity.csv')
 
         # write storage capacities as CSV
-        for unit in self.world.storages:
-            tempDF = pd.DataFrame(unit.dictCapacity, index=['Power']).T
-            tempDF = tempDF.set_index(self.index).astype('float32')
-            tempDF.to_csv(directory + f'STO_capacities/{unit.name}_Capacity.csv')
+        for storage in (self.world.storages+self.world.rl_storages):
+            tempDF = pd.DataFrame(storage.total_capacity, index=self.index, columns=['Total st']).astype('float32')
+            tempDF.to_csv(directory + f'STO_capacities/{storage.name}_Capacity.csv')
+
+            tempDF = pd.DataFrame(storage.profits, index=self.index, columns=['Profits']).astype('float32')
+            tempDF.to_csv(directory + f'STO_capacities/{storage.name}_Profits.csv')
+
+            tempDF = pd.DataFrame(storage.soc[:-1], index=self.index, columns=['SOC']).astype('float32')
+            tempDF.to_csv(directory + f'STO_capacities/{storage.name}_SOC.csv')
 
         self.world.logger.info('Saving results complete')
 
-    
     def write_pp(self):
         for powerplant in (self.world.rl_powerplants+self.world.powerplants+self.world.vre_powerplants):
             tags = {'simulationID': self.world.simulation_id,
