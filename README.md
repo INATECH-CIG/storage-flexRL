@@ -41,6 +41,6 @@ python main.py
 Licence
 =======
 
-Copyright 2022-2023 [ASSUME developers](https://assume.readthedocs.io/en/latest/developers.html)
+Copyright 2021-2023 Nick Harder
 
-ASSUME is licensed under the [GNU Affero General Public License v3.0](https://github.com/assume-framework/assume/blob/main/LICENSE)
+ASSUME is licensed under the [GNU Affero General Public License v3.0](https://github.com/INATECH-CIG/storage-flexRL/blob/main/LICENSE)
