@@ -1,0 +1,95 @@
+{
+  "description": "single learning storage unit, no renewables, no CBT, powerplants bid marginal cost this scenario mimics merit order setup",
+
+  "run_base": {
+    "scenario": "storage_paper/case_01",
+    "id": "st_01_base",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 10,
+    "max_price": 100,
+    "importCBT": false,
+    "import_storages": true,
+    "opt_storages": false,
+    "write_to_db": true,
+    "rl_mode": false,
+    "learning_params": {
+      "training": false
+    },
+    "load_params": false
+  },
+
+  "run_opt": {
+    "scenario": "storage_paper/case_01",
+    "id": "st_01_opt",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 10,
+    "max_price": 100,
+    "importCBT": false,
+    "import_storages": true,
+    "opt_storages": true,
+    "write_to_db": true,
+    "rl_mode": false,
+    "learning_params": {
+      "training": false
+    },
+    "load_params": false
+  },
+
+  "run_pf": {
+    "scenario": "storage_paper/case_01",
+    "id": "st_01_opt_pf",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 10,
+    "max_price": 100,
+    "importCBT": false,
+    "import_storages": true,
+    "opt_storages": true,
+    "write_to_db": true,
+    "rl_mode": false,
+    "learning_params": {
+      "training": false
+    },
+    "load_params": false
+  },
+  
+  "run_01": {
+    "scenario": "storage_paper/case_01",
+    "id": "st_01_1",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 10,
+    "max_price": 100,
+    "importCBT": false,
+    "import_storages": true,
+    "opt_storages": false,
+    "write_to_db": true,
+    "rl_mode": true,
+    "learning_params": {
+      "training": false,
+      "learning_rate": 1e-4,
+      "batch_size": 256,
+      "train_freq": 100,
+      "gradient_steps": -1,
+      "gamma": 0.999,
+      "training_episodes": 300,
+      "learning_starts": 10
+    },
+    "load_params": {
+      "id": "st_01_1",
+      "policy_dir": "E:/Codes/flexRL/policies/",
+      "dir": "highest_profit",
+      "load_critics": false
+    }
+  }
+}

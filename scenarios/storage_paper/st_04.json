@@ -1,0 +1,128 @@
+{
+  "description": "multiple learning storage unit, with renewables, CBT, and forecast error, powerplants bid according to built-in strategies",
+  
+  "run_base": {
+    "scenario": "storage_paper/case_04",
+    "id": "st_04_base",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 1,
+    "max_price": 100,
+    "importCBT": true,
+    "import_storages": true,
+    "opt_storages": false,
+    "write_to_db": true,
+    "rl_mode": false,
+    "learning_params": {
+      "training": false
+    },
+    "load_params": false
+  },
+
+  "run_opt": {
+    "scenario": "storage_paper/case_04",
+    "id": "st_04_opt",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 1,
+    "max_price": 100,
+    "importCBT": true,
+    "import_storages": true,
+    "opt_storages": true,
+    "write_to_db": true,
+    "rl_mode": false,
+    "learning_params": {
+      "training": false
+    },
+    "load_params": false
+  },
+
+  "run_pf": {
+    "scenario": "storage_paper/case_04",
+    "id": "st_04_opt_pf",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 1,
+    "max_price": 100,
+    "importCBT": true,
+    "import_storages": true,
+    "opt_storages": true,
+    "write_to_db": true,
+    "rl_mode": false,
+    "learning_params": {
+      "training": false
+    },
+    "load_params": false
+  },
+
+  "run_01": {
+    "scenario": "storage_paper/case_04",
+    "id": "st_04_1",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 1,
+    "max_price": 100,
+    "importCBT": true,
+    "import_storages": true,
+    "opt_storages": false,
+    "write_to_db": true,
+    "rl_mode": true,
+    "learning_params": {
+      "training": false,
+      "learning_rate": 1e-4,
+      "batch_size": 256,
+      "train_freq": -1,
+      "gradient_steps": 1000,
+      "gamma": 0.999,
+      "training_episodes": 300,
+      "learning_starts": 5,
+      "noise_sigma": 0.2
+    },
+    "load_params": {
+      "id": "st_04_1",
+      "policy_dir": "E:/Codes/flexRL/policies/",
+      "dir": "highest_profit",
+      "load_critics": true
+    }
+  },
+
+  "run_02": {
+    "scenario": "storage_paper/case_04",
+    "id": "st_04_2",
+    "year": 2019,
+    "days": 60,
+    "start": "-03-01 00:00",
+    "dt": 1,
+    "scale": 1,
+    "max_price": 100,
+    "importCBT": true,
+    "import_storages": true,
+    "opt_storages": false,
+    "write_to_db": true,
+    "rl_mode": true,
+    "learning_params": {
+      "training": false,
+      "learning_rate": 1e-4,
+      "batch_size": 256,
+      "train_freq": -1,
+      "gradient_steps": 1000,
+      "gamma": 0.999,
+      "training_episodes": 300,
+      "learning_starts": 5,
+      "noise_sigma": 0.2
+    },
+    "load_params": {
+      "id": "st_04_2",
+      "policy_dir": "E:/Codes/flexRL/policies/",
+      "dir": "highest_profit",
+      "load_critics": true
+    }
+  }}
