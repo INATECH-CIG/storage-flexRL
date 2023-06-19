@@ -465,7 +465,10 @@ class World():
             if self.training:
                 self.create_learning_algorithm()
                 self.logger.info('Training mode active, MATD3 algorithm created')
-                device = th.cuda.get_device_name(device=self.device)
+                try:
+                    device = th.cuda.get_device_name(device=self.device)
+                except:
+                    device = 'cpu'
                 self.logger.info(f"Running on {device}")
 
         self.logger.info("All data loaded, ready to run the simulation")

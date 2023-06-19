@@ -1,5 +1,5 @@
 {
-  "description": "single learning storage unit, with renewables, CBT, and forecast error, powerplants bid according to built-in strategies",
+  "description": "multiple learning storage unit, with renewables, CBT, and forecast error, powerplants bid according to built-in strategies",
   
   "run_base": {
     "scenario": "storage_paper/case_02",
@@ -60,7 +60,7 @@
     },
     "load_params": false
   },
-  
+
   "run_01": {
     "scenario": "storage_paper/case_02",
     "id": "st_02_1",
@@ -76,7 +76,7 @@
     "write_to_db": false,
     "rl_mode": true,
     "learning_params": {
-      "training": true,
+      "training": false,
       "learning_rate": 1e-4,
       "batch_size": 256,
       "train_freq": -1,
@@ -84,8 +84,12 @@
       "gamma": 0.999,
       "training_episodes": 300,
       "learning_starts": 5,
-      "noise_sigma": 0.1
+      "noise_sigma": 0.2
     },
-    "load_params": false
-  }
-}
+    "load_params": {
+      "id": "st_02",
+      "policy_dir": "policies/",
+      "dir": "highest_profit",
+      "load_critics": false
+    }
+  }}

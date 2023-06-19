@@ -11,7 +11,7 @@ from flexABLE import World
 # %% 
 # run training on defined scenario
 study = 'storage_paper'
-case = 'st_01'
+case = 'st_03'
 run = 'run_01'
 with open(f'./scenarios/{study}/{case}.json') as f:
     config = json.load(f)
@@ -19,7 +19,7 @@ with open(f'./scenarios/{study}/{case}.json') as f:
 
 # %%
 # create world
-save_policy_dir = 'E:/Codes/flexRL/policies/'
+save_policy_dir = 'policies/'
 
 dt = scenario['dt']
 
